@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
     - uses: actions/checkout@v4
@@ -25,7 +25,7 @@ jobs:
     - name: Install Buildozer & Cython
       run: |
         pip install --upgrade pip setuptools
-        pip install buildozer cython
+        pip install "cython<3.0.0" buildozer
 
     - name: Build APK with Buildozer
       run: buildozer -v android debug
